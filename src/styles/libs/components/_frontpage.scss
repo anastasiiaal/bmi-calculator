@@ -1,0 +1,37 @@
+.frontpage {
+    position: relative;
+    padding-top: 76px;
+    padding-bottom: 110px;
+
+    &:before {
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 70%;
+        z-index: -1;
+        top: 0;
+        left: 24px;
+        border-bottom-right-radius: $bdrs-l;
+        border-bottom-left-radius: $bdrs-l;
+
+        @extend %blue-gradient
+    }
+    
+    h1 {
+        margin-bottom: 40px;
+    }
+
+    .logo {
+        margin-bottom: 30px;
+    }
+
+    &-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .intro-text {
+        width: 500px;
+    }
+}

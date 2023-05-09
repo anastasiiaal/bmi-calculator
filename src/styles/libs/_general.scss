@@ -1,3 +1,28 @@
 :root {
     font-family: "Inter", sans-serif;
+    color: $heading;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+h2 {
+    font-size: 46px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+p.text {
+    font-size: 16px;
+    color: $text;
+    font-weight: 500;
+}
+
+.container {
+    // width: 1392px;
+    width: 1160px;
+    margin: 0 auto;
 }

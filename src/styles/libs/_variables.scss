@@ -1,0 +1,22 @@
+$heading: #233247;
+$text: #5D6A73;
+$white: #FFFFFF;
+
+$bdrs-s: 7px;
+$bdrs-m: 15px;
+$bdrs-l: 35px;
+$bdrs-xl: 65px;
+
+%blue-gradient {
+    background: rgb(255,255,255);
+    background: linear-gradient(98deg, rgba(255,255,255,1) 0%, rgba(216,231,255,1) 100%);
+}
+
+%dark-gradient {
+    background: rgb(54,95,245);
+    background: linear-gradient(98deg, rgba(54,95,245,1) 0%, rgba(86,123,255,1) 100%);
+}
+
+%shadow {
+    box-shadow: 16px 16px 42px 5px rgba(55, 108, 169, 0.1);
+}
