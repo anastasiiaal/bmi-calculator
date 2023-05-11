@@ -125,6 +125,40 @@ section {
 .frontpage .calculator .result__text span {
   font-weight: 700;
 }
+.frontpage .calculator .radio-wrapper {
+  width: 50%;
+}
+.frontpage .calculator .input-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.frontpage .calculator .input-wrapper .measure-unit {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  color: #365FF5;
+}
+.frontpage .calculator input[type=number] {
+  border: 1px solid #EFEFEF;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+.frontpage .calculator input[type=radio] {
+  transform: scale(2);
+  cursor: pointer;
+}
+.frontpage .calculator label {
+  font-weight: 600;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.frontpage .calculator input::-webkit-outer-spin-button,
+.frontpage .calculator input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 section.tips {
   border-radius: 35px;
