@@ -1,0 +1,8 @@
+.limitations {
+    .limitation {
+        @extend %shadow;
+        padding: 30px;
+        border-radius: $bdrs-m;
+        width: 365px;
+    }
+}

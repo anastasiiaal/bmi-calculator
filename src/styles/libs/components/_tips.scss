@@ -1,0 +1,7 @@
+section.tips {
+    @extend %blue-gradient;
+    border-radius: $bdrs-l;
+    margin-inline: 24px;
+    padding-top: 70px;
+    padding-bottom: 100px;
+}

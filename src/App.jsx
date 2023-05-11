@@ -5,14 +5,16 @@ import Result from './components/Result'
 import Tips from './components/Tips'
 import Limitations from './components/Limitations'
 
-export default function App() {
+import tips from "./tips"
+import limits from "./limitations"
 
+export default function App() {
   return (
     <main>
       <Frontpage />
       <Result />
-      <Tips />
-      <Limitations />
+      <Tips tips={tips} />
+      <Limitations limits={limits} />
     </main>
   )
 }
