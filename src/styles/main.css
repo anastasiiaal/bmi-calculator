@@ -60,6 +60,11 @@ h3 {
   font-size: 22px;
 }
 
+h1, h2, h3 {
+  font-weight: 700;
+  line-height: 1.25;
+}
+
 p.text {
   font-size: 16px;
   color: #5D6A73;
@@ -102,28 +107,23 @@ section {
   align-items: center;
   justify-content: space-between;
 }
-.frontpage .intro-text {
-  width: 500px;
-}
 
 .frontpage .calculator {
   background-color: #FFFFFF;
   padding: 33px;
   border-radius: 15px;
-  width: 565px;
   box-sizing: border-box;
 }
 .frontpage .calculator__result {
   color: #FFFFFF;
   padding: 33px;
   border-radius: 7px;
-  border-top-right-radius: 65px;
-  border-bottom-right-radius: 65px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
   margin-top: 33px;
 }
-
-.result-text, .result-image {
-  width: 50%;
+.frontpage .calculator .result__text span {
+  font-weight: 700;
 }
 
 section.tips {
@@ -137,4 +137,40 @@ section.tips {
   padding: 30px;
   border-radius: 15px;
   width: 365px;
+}
+
+/*992-1250*/
+@media screen and (max-width: 1250px) {
+  .container {
+    width: 850px;
+  }
+  .frontpage::before {
+    width: 100%;
+    left: 0;
+  }
+  section.tips {
+    border-radius: 0;
+    margin-inline: 0;
+  }
+}
+/*768-992*/
+@media screen and (max-width: 992px) {
+  .container {
+    width: 700px;
+  }
+}
+/*600-768*/
+@media screen and (max-width: 768px) {
+  .container {
+    width: 540px;
+  }
+}
+/*< 600*/
+@media screen and (max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+  .frontpage .calculator__result {
+    border-radius: 7px;
+  }
 }/*# sourceMappingURL=main.css.map */

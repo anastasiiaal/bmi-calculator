@@ -15,6 +15,11 @@ h3 {
     font-size: 22px;
 }
 
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.25;
+}
+
 p.text {
     font-size: 16px;
     color: $text;
@@ -22,7 +27,6 @@ p.text {
 }
 
 .container {
-    // width: 1392px;
     width: 1160px;
     margin: 0 auto;
 }

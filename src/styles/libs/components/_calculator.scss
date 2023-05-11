@@ -3,7 +3,6 @@
         background-color: $white;
         padding: 33px;
         border-radius: $bdrs-m;
-        width: 565px;
         box-sizing: border-box;
 
         @extend %shadow;
@@ -16,6 +15,10 @@
             border-top-right-radius: $bdrs-xl;
             border-bottom-right-radius: $bdrs-xl;
             margin-top: 33px;
+        }
+
+        .result__text span {
+            font-weight: 700;
         }
     }
 }
