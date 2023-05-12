@@ -1,4 +1,4 @@
-/*992-1250*/
+/* 992-1250 == xl */
 @media screen and (max-width: 1250px) {
     .container {
         width: 850px; 
@@ -15,21 +15,21 @@
     }
 }
 
-/*768-992*/
+/* 768-992 == lg */
 @media screen and (max-width: 992px) {
     .container {
         width: 700px;
     }
 }
 
-/*600-768*/
+/* 600-768 == md */
 @media screen and (max-width: 768px) {
     .container {
         width: 540px;
     }
 }
 
-/*< 600*/
+/* < 600 == sm */
 @media screen and (max-width: 600px) {
     .container {
         width: 90%;

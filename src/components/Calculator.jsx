@@ -1,7 +1,41 @@
 import React, { useState } from "react"
 
 export default function Calculator() {
-    const [userData, setUserData] = useState({})
+    const [userData, setUserData] = useState({
+        units: "metric",
+        height: "",
+        weight: ""
+    })
+
+    let height;
+    let weight;
+
+    if (userData.units == "metric") {
+        height = "cm"
+        weight = "kg"
+    } else {
+        height = "ft"
+        weight = "lbs"
+    }
+
+    function handleChange(event) {
+        const {name, value} = event.target
+        setUserData(prevData => {
+            return {
+                ...prevData,
+                [name]: value
+            }
+        })
+    }
+
+    function calculateBMI() {
+        if (userData.height && userData.weight) {
+            console.log(userData.weight / ((userData.height/100)*(userData.height/100)));
+        }
+    }
+
+    console.log(userData);
+    calculateBMI()
 
     return (
         <div className="calculator w-[565px] lg:w-[100%]">
@@ -12,10 +46,10 @@ export default function Calculator() {
                         <input
                             type="radio"
                             id="metric"
-                            name="employment"
+                            name="units"
                             value="metric"
-                        // onChange={handleChange}
-                        // checked={formData.employment === "metric"}
+                            onChange={handleChange}
+                            checked={userData.units === "metric"}
                             className="mr-5"
                         />
                         <label htmlFor="metric">Metric</label>
@@ -25,10 +59,10 @@ export default function Calculator() {
                         <input
                             type="radio"
                             id="imperial"
-                            name="employment"
+                            name="units"
                             value="imperial"
-                        // onChange={handleChange}
-                        // checked={formData.employment === "imperial"}
+                            onChange={handleChange}
+                            checked={userData.units === "imperial"}
                             className="mr-5"
                         />
                         <label htmlFor="imperial">Imperial</label>
@@ -40,20 +74,24 @@ export default function Calculator() {
                         <input
                             type="number"
                             id="height"
+                            name="height"
                             placeholder="0"
-                            // onChange={handleChange}
+                            onChange={handleChange}
+                            value={userData.height}
                         />
-                        <h3 className="measure-unit">cm</h3>
+                        <h3 className="measure-unit">{height}</h3>
                     </div>
                     <div className="input-wrapper w-[50%] sm:w-[100%]">
                         <label htmlFor="weight">Weight</label>
                         <input
                             type="number"
                             id="weight"
+                            name="weight"
                             placeholder="0"
-                            // onChange={handleChange}
+                            onChange={handleChange}
+                            value={userData.weight}
                         />
-                        <h3 className="measure-unit">kg</h3>
+                        <h3 className="measure-unit">{weight}</h3>
                     </div>
                 </div>
             </form>
