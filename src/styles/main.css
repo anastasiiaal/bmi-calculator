@@ -170,7 +170,7 @@ section.tips {
 .limitations .limitation {
   padding: 30px;
   border-radius: 15px;
-  width: 365px;
+  box-sizing: border-box;
 }
 
 /*992-1250*/

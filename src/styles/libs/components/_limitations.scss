@@ -3,6 +3,7 @@
         @extend %shadow;
         padding: 30px;
         border-radius: $bdrs-m;
-        width: 365px;
+        box-sizing: border-box;
+        // width: 365px;
     }
 }
