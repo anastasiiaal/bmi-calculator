@@ -61,23 +61,40 @@ export default function Calculator() {
     })()
 
     const starterTemplate = (
-        <div className="calculator__result">
+        <div className="calculator__result blue">
             <h3 className="mb-6">Welcome!</h3>
             <p className="result__text">Enter your height and weight and you'll see your BMI result here</p>
         </div>
     )
 
+    let color;
+    let weightAssesment;
+
     let resultTemplate;
     if (BMIresult === undefined) {
         resultTemplate = starterTemplate
     } else {
+        if (BMIresult < 18.5) {
+            color = "orange"
+            weightAssesment = "an insufficient weight"
+        } else if (BMIresult >= 18.5 && BMIresult <= 24.99) {
+            color = "green"
+            weightAssesment = "a healthy weight"
+        } else if (BMIresult >= 25 && BMIresult <= 29.99) {
+            color = "orange"
+            weightAssesment = "a slight overweight"
+        } else {
+            color = "red"
+            weightAssesment = "a significant overweight"
+        }
+
         resultTemplate = (
-            <div className="calculator__result flex items-center justify-between sm:flex-col sm:items-start sm:gap-8">
+            <div className={`calculator__result flex items-center justify-between sm:flex-col sm:items-start sm:gap-8 ${color}`}>
                 <div>
                     <p className="result__text">Your BMI is...</p>
                     <h2 className="mt-6">{BMIresult}</h2>
                 </div>
-                <p className="result__text w-[250px] pr-8 sm:w-[100%] sm:pr-0">Your BMI suggests that you have a healthy weight. Your ideal weight is between <span>55.6kgs - 60.3kgs</span></p>
+                <p className="result__text w-[250px] pr-8 sm:w-[100%] sm:pr-0">Your BMI suggests that you have <span>{weightAssesment}</span>. Your ideal weight is between <span>55.6kgs - 60.3kgs</span></p>
             </div>
         )
     }

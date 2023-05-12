@@ -8,14 +8,26 @@ $bdrs-m: 15px;
 $bdrs-l: 35px;
 $bdrs-xl: 100px;
 
-%blue-gradient {
+%light-gradient {
     background: rgb(255,255,255);
     background: linear-gradient(98deg, rgba(255,255,255,1) 0%, rgba(216,231,255,1) 100%);
 }
 
-%dark-gradient {
+%blue-gradient {
     background: rgb(54,95,245);
     background: linear-gradient(98deg, rgba(54,95,245,1) 0%, rgba(86,123,255,1) 100%);
+}
+
+%green-gradient {
+    background: linear-gradient(to right, rgb(141, 207, 103), rgb(14, 161, 81));
+}
+
+%orange-gradient {
+    background: radial-gradient(circle at 10% 20%, rgb(253, 193, 104) 0%, rgb(251, 128, 128) 90%);
+}
+
+%red-gradient {
+    background: linear-gradient(88.7deg, rgb(205, 33, 42) 10.6%, rgb(236, 95, 5) 90%);
 }
 
 %shadow {

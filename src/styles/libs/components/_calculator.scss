@@ -8,13 +8,29 @@
         @extend %shadow;
 
         &__result {
-            @extend %dark-gradient;
+            
             color: $white;
             padding: 33px;
             border-radius: $bdrs-s;
             border-top-right-radius: $bdrs-xl;
             border-bottom-right-radius: $bdrs-xl;
             margin-top: 33px;
+
+            &.blue {
+                @extend %blue-gradient;
+            }
+
+            &.green {
+                @extend %green-gradient;
+            }
+
+            &.orange {
+                @extend %orange-gradient
+            }
+
+            &.red {
+                @extend %red-gradient
+            }
         }
 
         .result__text span {

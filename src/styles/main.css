@@ -34,9 +34,21 @@ section.tips, .frontpage:before {
   background: linear-gradient(98deg, rgb(255, 255, 255) 0%, rgb(216, 231, 255) 100%);
 }
 
-.frontpage .calculator__result {
+.frontpage .calculator__result.blue {
   background: rgb(54, 95, 245);
   background: linear-gradient(98deg, rgb(54, 95, 245) 0%, rgb(86, 123, 255) 100%);
+}
+
+.frontpage .calculator__result.green {
+  background: linear-gradient(to right, rgb(141, 207, 103), rgb(14, 161, 81));
+}
+
+.frontpage .calculator__result.orange {
+  background: radial-gradient(circle at 10% 20%, rgb(253, 193, 104) 0%, rgb(251, 128, 128) 90%);
+}
+
+.frontpage .calculator__result.red {
+  background: linear-gradient(88.7deg, rgb(205, 33, 42) 10.6%, rgb(236, 95, 5) 90%);
 }
 
 .limitations .limitation, .frontpage .calculator {
