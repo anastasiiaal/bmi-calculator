@@ -14,4 +14,7 @@ Users should be able to:
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
 
-**Letz gooooo!** 💪
+## Links
+
+- My final version - [Website link](https://bmi-calculator-dusky.vercel.app/) to play around
+- Original challenge - [Frontend Mentor](https://www.frontendmentor.io/challenges/body-mass-index-calculator-brrBkfSz1T)
