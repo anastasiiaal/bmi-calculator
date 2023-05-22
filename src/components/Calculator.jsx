@@ -36,12 +36,19 @@ export default function Calculator() {
         })
     }
 
-    function calc (w, h) {
+    function formulaBMI (w, h) {
         // w = weight, h = height         
         return (w/(h*h)).toFixed(2)
     }
 
+    function countPerfectWeight (bmi, h) {
+        return (bmi*h*h).toFixed(1)
+    }
+
     let BMIresult;
+    let idealWeightBottom;
+    let idealWeightTop;
+
     (function calculateBMI() {
         if (userData.height && userData.weight && (
             // got to fix input check differently...
@@ -51,11 +58,15 @@ export default function Calculator() {
         )) {
             if (userData.units == "metric") {
                 const thisHeight = userData.height / 100
-                BMIresult = calc(userData.weight, thisHeight)
+                BMIresult = formulaBMI(userData.weight, thisHeight)
+                idealWeightBottom = countPerfectWeight(18.5, thisHeight)
+                idealWeightTop = countPerfectWeight(24.9, thisHeight)
             } else {
                 const thisHeight = userData.height * 12
                 const thisWeight = userData.weight * 703
-                BMIresult = calc(thisWeight, thisHeight)
+                BMIresult = formulaBMI(thisWeight, thisHeight)
+                idealWeightBottom = (countPerfectWeight(18.5, thisHeight) / 703).toFixed(1)
+                idealWeightTop = (countPerfectWeight(24.9, thisHeight) / 703).toFixed(1)
             }
         }
     })()
@@ -94,7 +105,7 @@ export default function Calculator() {
                     <p className="result__text">Your BMI is...</p>
                     <h2 className="mt-6">{BMIresult}</h2>
                 </div>
-                <p className="result__text w-[250px] pr-8 sm:w-[100%] sm:pr-0">Your BMI suggests that you have <span>{weightAssesment}</span>. Your ideal weight is between <span>55.6kgs - 60.3kgs</span></p>
+                <p className="result__text w-[250px] pr-8 sm:w-[100%] sm:pr-0">Your BMI suggests that you have <span>{weightAssesment}</span>. Your ideal weight is between <span>{idealWeightBottom}{weight} - {idealWeightTop}{weight}</span></p>
             </div>
         )
     }
