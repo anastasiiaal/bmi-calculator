@@ -45,17 +45,34 @@ export default function Calculator() {
         return (bmi*h*h).toFixed(1)
     }
 
+    // function that verifies that all inputs are within correct numbers
+    // avoids massive numbers calculations
+    let errorMessage;
+    function validateInputs (u, h, w) {
+        if (u == "metric") {
+            if (h >= 50 && h <= 230 && w >= 25 && w <= 350) {
+                return true
+            } else {
+                errorMessage = "⚠️ Please make sure you use realistic numbers"
+            }
+        } else {
+            if (h >= 1.5 && h <= 7.5 && w >= 55 && w <= 770) {
+                return true
+            } else {
+                errorMessage = "⚠️ Please make sure you use realistic numbers"
+            }
+        }
+    }
+
     let BMIresult;
     let idealWeightBottom;
     let idealWeightTop;
 
+    // calculates BMI if all necessary data is provided && is correct
     (function calculateBMI() {
-        if (userData.height && userData.weight && (
-            // got to fix input check differently...
-            (userData.units == "metric" && userData.weight.length >= 2) 
-            ||
-            (userData.units == "imperial" && userData.weight.length >= 3)
-        )) {
+        if (userData.height && userData.weight && 
+            validateInputs(userData.units, userData.height, userData.weight)
+        ) {
             if (userData.units == "metric") {
                 const thisHeight = userData.height / 100
                 BMIresult = formulaBMI(userData.weight, thisHeight)
@@ -78,25 +95,24 @@ export default function Calculator() {
         </div>
     )
 
-    let color;
-    let weightAssesment;
-
-    let resultTemplate;
+    let color;                  // used to apply certain class of bg
+    let weightAssessment;       // string to be put inside report phrase
+    let resultTemplate;         // result frame to be displayed (starter template || BMI calculations)
     if (BMIresult === undefined) {
         resultTemplate = starterTemplate
     } else {
         if (BMIresult < 18.5) {
             color = "orange"
-            weightAssesment = "an insufficient weight"
+            weightAssessment = "an insufficient weight"
         } else if (BMIresult >= 18.5 && BMIresult <= 24.99) {
             color = "green"
-            weightAssesment = "a healthy weight"
+            weightAssessment = "a healthy weight"
         } else if (BMIresult >= 25 && BMIresult <= 29.99) {
             color = "orange"
-            weightAssesment = "a slight overweight"
+            weightAssessment = "a slight overweight"
         } else {
             color = "red"
-            weightAssesment = "a significant overweight"
+            weightAssessment = "a significant overweight"
         }
 
         resultTemplate = (
@@ -105,7 +121,7 @@ export default function Calculator() {
                     <p className="result__text">Your BMI is...</p>
                     <h2 className="mt-6">{BMIresult}</h2>
                 </div>
-                <p className="result__text w-[250px] pr-8 sm:w-[100%] sm:pr-0">Your BMI suggests that you have <span>{weightAssesment}</span>. Your ideal weight is between <span>{idealWeightBottom}{weight} - {idealWeightTop}{weight}</span></p>
+                <p className="result__text w-[250px] pr-8 sm:w-[100%] sm:pr-0">Your BMI suggests that you have <span>{weightAssessment}</span>. Your ideal weight is between <span>{idealWeightBottom}{weight} - {idealWeightTop}{weight}</span></p>
             </div>
         )
     }
@@ -127,7 +143,6 @@ export default function Calculator() {
                         />
                         <label htmlFor="metric">Metric</label>
                     </div>
-
                     <div className="radio-wrapper">
                         <input
                             type="radio"
@@ -151,8 +166,6 @@ export default function Calculator() {
                             placeholder="0"
                             onChange={handleChange}
                             value={userData.height}
-                            // min={1}
-                            // max={100}
                         />
                         <h3 className="measure-unit">{height}</h3>
                     </div>
@@ -165,13 +178,12 @@ export default function Calculator() {
                             placeholder="0"
                             onChange={handleChange}
                             value={userData.weight}
-                            // min={1}
-                            // max={100}
                         />
                         <h3 className="measure-unit">{weight}</h3>
                     </div>
                 </div>
             </form>
+            {errorMessage && <h4 className="mt-4 -mb-4 text-red-600">{errorMessage}</h4>}
             {resultTemplate}
         </div>
     )
