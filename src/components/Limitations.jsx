@@ -1,17 +1,24 @@
 import React from "react";
+import limit1 from "/src/assets/icons/icon-gender.svg"
+import limit2 from "/src/assets/icons/icon-age.svg"
+import limit3 from "/src/assets/icons/icon-muscle.svg"
+import limit4 from "/src/assets/icons/icon-pregnancy.svg"
+import limit5 from "/src/assets/icons/icon-race.svg"
 
 export default function Limitations({limits}) {
+    const imgArr = [limit1, limit2, limit3, limit4, limit5]
     const limitElements = limits.map(limit => {
         return (
             <div className="limitation w-[356px] xl:w-[48%] lg:w-[47%] md:w-[100%]" key={limit.id}>
                 <div className="flex items-center mb-5 ">
-                    <img src={`./src/assets/icons/${limit.img}`} alt={limit.heading} />
+                    <img src={imgArr[limit.id-1]} alt={limit.heading} />
                     <h3 className="ml-4">{limit.heading}</h3>
                 </div>
                 <p className="text">{limit.text}</p>
             </div>
         )
     })
+    
     return (
         <section className="limitations">
             <div className="container">

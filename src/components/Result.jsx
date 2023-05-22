@@ -1,11 +1,12 @@
 import React from "react";
+import manImg from "/src/assets/img/image-man-eating.webp"
 
 export default function Result () {
     return (
         <section className="result">
             <div className="container flex items-center gap-28 xl:gap-16 md:flex-col md:gap-0">
                 <div className="result-image w-[50%] md:w-[100%]">
-                    <img src="./src/assets/img/image-man-eating.webp" alt="Man eating" />
+                    <img src={manImg} alt="Man eating" />
                 </div>
                 <div className="result-text w-[50%] mt-20 md:w-[100%]">
                     <h2 className="mb-8">What your BMI result means</h2>

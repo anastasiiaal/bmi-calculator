@@ -1,5 +1,6 @@
 import React from "react";
 import Calculator from "./Calculator";
+import logo from "/src/assets/img/logo.svg"
 
 export default function Frontpage () {
     return (
@@ -7,7 +8,7 @@ export default function Frontpage () {
             <div className="container">
                 <nav>
                     <div className="logo flex xl:justify-center">
-                        <img src="./src/assets/img/logo.svg" alt="Logo" />
+                        <img src={logo} alt="Logo" />
                     </div>
                 </nav>
                 <div className="frontpage-wrapper flex xl:flex-col items-center justify-between">
