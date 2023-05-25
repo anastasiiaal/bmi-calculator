@@ -18,14 +18,30 @@ export default function Calculator() {
         weight = "lbs"
     }
 
+    function transformHeight (unit, height) {
+        if (unit == "metric") {
+            return Math.round(height * 30.48 * 10)/10
+        } else {
+            return Math.round(height / 30.48 * 10)/10
+        }
+    }
+
+    function transformWeight (unit, weight) {
+        if (unit == "metric") {
+            return Math.round(weight / 2.205 * 10)/10
+        } else {
+            return Math.round(weight * 2.205 * 10)/10
+        }
+    }
+
     function handleChange(event) {
         const {name, value} = event.target
         setUserData(prevData => {
             if (name == "units") {
                 return {
                     [name]: value,
-                    height: "",
-                    weight: ""
+                    height: prevData.height == "" ? "" : transformHeight(value, prevData.height),
+                    weight: prevData.weight == "" ? "" : transformWeight(value, prevData.weight),
                 }
             } else {
                 return {
@@ -36,27 +52,30 @@ export default function Calculator() {
         })
     }
 
-    function formulaBMI (w, h) {
-        // w = weight, h = height         
-        return (w/(h*h)).toFixed(2)
+    function formulaBMI (weight, height) {    
+        return (weight/(height*height)).toFixed(2)
     }
 
-    function countPerfectWeight (bmi, h) {
-        return (bmi*h*h).toFixed(1)
+    function countPerfectWeight (bmi, height) {
+        return (bmi*height*height).toFixed(1)
     }
 
     // function that verifies that all inputs are within correct numbers
     // avoids massive numbers calculations
     let errorMessage;
-    function validateInputs (u, h, w) {
-        if (u == "metric") {
-            if (h >= 50 && h <= 230 && w >= 25 && w <= 350) {
+    function validateInputs (units, height, weight) {
+        if (units == "metric") {
+            if (height >= 50 && height <= 230 && 
+                weight >= 25 && weight <= 350)
+            {
                 return true
             } else {
                 errorMessage = "⚠️ Please make sure you use realistic numbers"
             }
         } else {
-            if (h >= 1.5 && h <= 7.5 && w >= 55 && w <= 770) {
+            if (height >= 1.5 && height <= 7.5 && 
+                weight >= 55 && weight <= 770) 
+            {
                 return true
             } else {
                 errorMessage = "⚠️ Please make sure you use realistic numbers"
